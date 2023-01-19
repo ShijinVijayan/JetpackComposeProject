@@ -17,10 +17,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.myproject.R
 import com.example.myproject.navigation.Screen
-import com.example.myproject.ui.theme.colorBlack
-import com.example.myproject.ui.theme.colorBlue
-import com.example.myproject.ui.theme.colorRedDark
-import com.example.myproject.ui.theme.colorWhite
+import com.example.myproject.ui.theme.*
 
 @Composable
 fun WelcomeScreen(navController: NavController) {
@@ -91,9 +88,9 @@ fun WelcomeScreen(navController: NavController) {
                     Button(
                         onClick = {
                             navController.popBackStack()
-                            navController.navigate(Screen.SearchScreen.route)
+                            navController.navigate(Screen.LoginScreen.route)
                         },
-                        colors = ButtonDefaults.buttonColors(backgroundColor = colorBlue),
+                        colors = ButtonDefaults.buttonColors(backgroundColor = colorGreen),
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(50.dp)
@@ -124,7 +121,7 @@ fun WelcomeScreen(navController: NavController) {
 @Preview(name = "Dark Mode", uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Preview(name = "Full Preview", showSystemUi = true)
 @Composable
-@Preview
+
 fun WelcomeScreenPreview() {
     WelcomeScreen(navController = NavController(LocalContext.current))
 }
