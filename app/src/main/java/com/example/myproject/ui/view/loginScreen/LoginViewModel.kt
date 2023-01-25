@@ -20,7 +20,7 @@ class LoginViewModel @Inject constructor(
     val _loginState = Channel<LoginState>()
     val loginState = _loginState.receiveAsFlow()
 
-    val _googleState = mutableStateOf(GoogleLoginState())
+/*    val _googleState = mutableStateOf(GoogleLoginState())
     val googleLoginState: State<GoogleLoginState> = _googleState
 
     fun googleLogin(credential: AuthCredential) = viewModelScope.launch {
@@ -36,24 +36,25 @@ class LoginViewModel @Inject constructor(
                 }
                 is Resource.Error -> {
                     _googleState.value = GoogleLoginState(error = result.message!!)
+
                 }
             }
 
         }
-    }
+    }*/
 
     fun loginUser(email: String, password: String) = viewModelScope.launch {
         repository.loginUser(email, password).collect { result ->
             when (result) {
                 is Resource.Success -> {
-                    _loginState.send(LoginState(isSuccess = "Sign In Success "))
+                    _loginState.send(LoginState(isSuccess = true,isLoading = false))
                 }
                 is Resource.Loading -> {
                     _loginState.send(LoginState(isLoading = true))
                 }
                 is Resource.Error -> {
 
-                    _loginState.send(LoginState(isError = result.message))
+                    _loginState.send(LoginState(isError = result.message,isLoading = false))
                 }
             }
 

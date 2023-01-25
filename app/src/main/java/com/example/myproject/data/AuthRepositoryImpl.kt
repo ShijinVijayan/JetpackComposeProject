@@ -35,7 +35,7 @@ class AuthRepositoryImpl @Inject constructor(
         }
     }
 
-    override fun googleSignIn(credential: AuthCredential): Flow<Resource<AuthResult>> {
+/*    override fun googleSignIn(credential: AuthCredential): Flow<Resource<AuthResult>> {
         return flow {
             emit(Resource.Loading())
             val result = firebaseAuth.signInWithCredential(credential).await()
@@ -44,5 +44,5 @@ class AuthRepositoryImpl @Inject constructor(
             emit(Resource.Error(it.message.toString()))
         }
 
-    }
+    }*/
 }
