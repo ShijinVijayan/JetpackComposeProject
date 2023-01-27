@@ -5,12 +5,6 @@ i
 9app/src/main/java/com/example/myproject/ui/theme/Theme.kt,0\b\0b08b82c61e0a7a80e729d4d4e4d9abf9cb76b56
 z
 Japp/src/main/java/com/example/myproject/component/StandardBottomNavItem.kt,1\f\1f81fa06098e8ec62c80f9567d2634bb974f2be5
-i
-9app/src/main/java/com/example/myproject/ui/theme/Color.kt,c\5\c54cb5c5ff15fb095074223dc97c8acad51d1a45
-p
-@app/src/main/java/com/example/myproject/navigation/Navigation.kt,c\6\c6459a09bccf78b1510439ae0a5c946e6a967d47
-l
-<app/src/main/java/com/example/myproject/navigation/Screen.kt,6\c\6c252c6f5e45fc3df0d20d32214a70959ccfbeba
 
 Oapp/src/main/java/com/example/myproject/ui/view/welcome_screen/WelcomeScreen.kt,f\3\f365acade897a91ff1abd5c58febcf8c1a230ff1
 <
@@ -25,3 +19,13 @@ g
 7app/src/main/java/com/example/myproject/di/AppModule.kt,3\a\3a514d012cb1760297bca22e69ff597d40159f38
 H
 app/google-services.json,f\d\fd8d34b142d02ec743a8efefefd2c097961666e9
+
+Oapp/src/main/java/com/example/myproject/ui/view/loginScreen/GoogleLoginState.kt,5\5\55de27f553821df583b7d10d2b1eb58821b50f3f
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
+r
+Bapp/src/main/java/com/example/myproject/data/AuthRepositoryImpl.kt,2\e\2e013c2c3e2e872b172d1c6b4a5f6831e9b3f664
+n
+>app/src/main/java/com/example/myproject/data/AuthRepository.kt,6\1\6104e73bd711a7ddb534d6beaadf1df41dd1bc57
+n
+>app/src/main/java/com/example/myproject/model/BottomNavItem.kt,9\7\97e4f79902894e52de8b47f633af54d9cdb6fc66

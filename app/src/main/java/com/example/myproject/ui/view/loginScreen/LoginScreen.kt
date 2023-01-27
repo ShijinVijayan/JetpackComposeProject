@@ -15,6 +15,8 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Lock
+import androidx.compose.material.icons.filled.Visibility
+import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
@@ -71,10 +73,11 @@ fun Login(
     val state = viewModel.loginState.collectAsState(initial = null)
     var passwordVisible by remember { mutableStateOf(false) }
 
+
     val maxChar = 10
  LaunchedEffect(key1 = state.value, block = {
      if(state.value?.isSuccess==true)
-         navController.navigate(Screen.SearchScreen.route)
+         navController.navigate(Screen.Home.route)
  })
 
     Box(
@@ -160,6 +163,14 @@ fun Login(
                 },
                 /* label = { Text(text = "Password") },*/
                 shape = RoundedCornerShape(24.dp),
+                trailingIcon = {
+                    IconButton(onClick = { passwordVisible = !passwordVisible }) {
+                        Icon(
+                            imageVector = if (passwordVisible) Icons.Filled.Visibility else Icons.Filled.VisibilityOff,
+                            contentDescription = "Password Toggle"
+                        )
+                    }
+                },
                 onValueChange = {
                     userpassword = it
                 })
