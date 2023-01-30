@@ -5,8 +5,6 @@ i
 9app/src/main/java/com/example/myproject/ui/theme/Theme.kt,0\b\0b08b82c61e0a7a80e729d4d4e4d9abf9cb76b56
 z
 Japp/src/main/java/com/example/myproject/component/StandardBottomNavItem.kt,1\f\1f81fa06098e8ec62c80f9567d2634bb974f2be5
-
-Oapp/src/main/java/com/example/myproject/ui/view/welcome_screen/WelcomeScreen.kt,f\3\f365acade897a91ff1abd5c58febcf8c1a230ff1
 <
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
 h

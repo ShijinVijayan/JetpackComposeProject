@@ -39,21 +39,7 @@ fun MainUI() {
             modifier = Modifier.fillMaxSize()
         ) {
             val navController = rememberNavController()
-            val navBackStackEntry by navController.currentBackStackEntryAsState()
-            StandardScaffold(
-                navController = navController,
-                showBottomBar = navBackStackEntry?.destination?.route in listOf(
-                    Screen.HomeScreen.route
-                ),
-                modifier =Modifier.fillMaxSize(),
-                onFabClick ={
-                    navController.navigate(Screen.SearchScreen.route)
-                }
-            ){
                 Navigation(navController)
-
-            }
-
         }
 
     }
