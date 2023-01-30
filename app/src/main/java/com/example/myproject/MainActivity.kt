@@ -39,7 +39,9 @@ fun MainUI() {
             modifier = Modifier.fillMaxSize()
         ) {
             val navController = rememberNavController()
-                Navigation(navController)
+            val navBackStackEntry by navController.currentBackStackEntryAsState()
+            Navigation(navController)
+
         }
 
     }

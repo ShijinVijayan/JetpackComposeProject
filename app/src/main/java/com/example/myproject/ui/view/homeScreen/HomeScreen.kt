@@ -4,6 +4,7 @@ package com.example.myproject.ui.view.homeScreen
 import android.content.res.Configuration
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Button
@@ -38,7 +39,6 @@ fun Home(navController: NavController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(25.dp),
     ) {
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -75,7 +75,7 @@ fun Home(navController: NavController) {
                 backgroundColor = White,
                 contentColor = colorRedDark
             ),
-            modifier = Modifier.size(width = 330.dp, height = 47.dp),
+            modifier = Modifier.height(47.dp),
             shape = CircleShape
         ) {
             Icon(
@@ -84,9 +84,20 @@ fun Home(navController: NavController) {
                 modifier = Modifier
                     .size(25.dp)
             )
-            Spacer(modifier = Modifier.width(290.dp))
+            Spacer(modifier = Modifier.width(400.dp))
 
         }
+        Image(
+            painter = painterResource(R.drawable.header),
+            contentDescription = "header",
+            modifier = Modifier
+                .fillMaxWidth()
+                .clickable {
+
+                }
+                .padding(vertical = 10.dp)
+//                .size(width = 400.dp, height = 100.dp)
+        )
 
 
     }
