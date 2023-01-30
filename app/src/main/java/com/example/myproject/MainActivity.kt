@@ -15,7 +15,9 @@ import com.example.myproject.component.StandardScaffold
 import com.example.myproject.navigation.Navigation
 import com.example.myproject.navigation.Screen
 import com.example.myproject.ui.theme.MyProjectTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,21 +39,7 @@ fun MainUI() {
             modifier = Modifier.fillMaxSize()
         ) {
             val navController = rememberNavController()
-            val navBackStackEntry by navController.currentBackStackEntryAsState()
-            StandardScaffold(
-                navController = navController,
-                showBottomBar = navBackStackEntry?.destination?.route in listOf(
-                    Screen.HomeScreen.route
-                ),
-                modifier =Modifier.fillMaxSize(),
-                onFabClick ={
-                    navController.navigate(Screen.SearchScreen.route)
-                }
-            ){
                 Navigation(navController)
-
-            }
-
         }
 
     }

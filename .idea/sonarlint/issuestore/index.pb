@@ -1,7 +1,29 @@
 
-<
-build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
 h
 8app/src/main/java/com/example/myproject/ui/theme/Type.kt,7\a\7a67d6e4aac6ab6e365cc6e4d3f2723021475c48
 i
 9app/src/main/java/com/example/myproject/ui/theme/Theme.kt,0\b\0b08b82c61e0a7a80e729d4d4e4d9abf9cb76b56
+z
+Japp/src/main/java/com/example/myproject/component/StandardBottomNavItem.kt,1\f\1f81fa06098e8ec62c80f9567d2634bb974f2be5
+<
+build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
+h
+8app/src/main/java/com/example/myproject/util/Resource.kt,2\d\2deff4b2317bdb5678fa6c6f3963cb6ec50175c4
+h
+8app/src/main/java/com/example/myproject/MyApplication.kt,b\d\bd2aa6f477b999d8152c29b1603ec3c624c27cc8
+@
+app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
+g
+7app/src/main/java/com/example/myproject/di/AppModule.kt,3\a\3a514d012cb1760297bca22e69ff597d40159f38
+H
+app/google-services.json,f\d\fd8d34b142d02ec743a8efefefd2c097961666e9
+
+Oapp/src/main/java/com/example/myproject/ui/view/loginScreen/GoogleLoginState.kt,5\5\55de27f553821df583b7d10d2b1eb58821b50f3f
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
+r
+Bapp/src/main/java/com/example/myproject/data/AuthRepositoryImpl.kt,2\e\2e013c2c3e2e872b172d1c6b4a5f6831e9b3f664
+n
+>app/src/main/java/com/example/myproject/data/AuthRepository.kt,6\1\6104e73bd711a7ddb534d6beaadf1df41dd1bc57
+n
+>app/src/main/java/com/example/myproject/model/BottomNavItem.kt,9\7\97e4f79902894e52de8b47f633af54d9cdb6fc66
