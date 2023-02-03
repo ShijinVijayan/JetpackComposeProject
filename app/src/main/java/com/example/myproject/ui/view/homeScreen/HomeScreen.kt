@@ -4,16 +4,21 @@ package com.example.myproject.ui.view.homeScreen
 import android.content.res.Configuration
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Scaffold
+import androidx.compose.material.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -22,8 +27,12 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.myproject.R
 import com.example.myproject.component.BottomNavigationBar
+import com.example.myproject.navigation.Screen
+import com.example.myproject.ui.theme.CardViewBackground
+import com.example.myproject.ui.theme.Shapes
 import com.example.myproject.ui.theme.colorBlue
 import com.example.myproject.ui.theme.darkBlue
+import com.example.myproject.util.CATEGORY
 
 
 @Composable
@@ -70,6 +79,14 @@ fun Home(navController: NavController) {
                     )
                     Spacer(modifier = Modifier.height(20.dp))
 
+                    CategoryBar(CATEGORY) {
+                        navController.navigate(Screen.LoginScreen.route)
+                    }
+
+                    Spacer(modifier = Modifier.height(20.dp))
+
+                    test()
+
 
                 }
             }
@@ -77,9 +94,53 @@ fun Home(navController: NavController) {
     )
 
 
+}
 
+
+@Composable
+fun CategoryBar(categoryList: List<Pair<String, Int>>, onCategoryClicked: (String) -> Unit) {
+    LazyRow(
+        modifier = Modifier.padding(top = 16.dp),
+        contentPadding = PaddingValues(end = 16.dp)
+    ) {
+        items(categoryList.size) { CategoryItem(categoryList[it], onCategoryClicked) }
+    }
 
 }
+
+
+@Composable
+fun CategoryItem(subject: Pair<String, Int>, onCategoryClicked: (String) -> Unit) {
+    Column(
+        modifier = Modifier
+            .padding(start = 16.dp)
+            .clickable { onCategoryClicked.invoke(subject.first) },
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Surface(
+            shape = Shapes.medium,
+            color = CardViewBackground
+        ) {
+            Image(
+                modifier = Modifier.padding(16.dp),
+                painter = painterResource(id = subject.second),
+                contentDescription = null
+            )
+        }
+        androidx.compose.material.Text(
+            text = subject.first,
+            modifier = Modifier.padding(top = 4.dp),
+            style = TextStyle(color = Color.Gray)
+        )
+    }
+}
+
+
+@Composable
+fun test() {
+
+}
+
 
 @Preview(name = "Full Preview", showSystemUi = true)
 @Preview(name = "Light Mode")

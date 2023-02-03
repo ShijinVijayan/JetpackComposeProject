@@ -33,7 +33,3 @@ p
 @app/src/main/java/com/example/myproject/navigation/Navigation.kt,c\6\c6459a09bccf78b1510439ae0a5c946e6a967d47
 }
 Mapp/src/main/java/com/example/myproject/ui/view/loginScreen/LoginViewModel.kt,9\3\93cf02cc506f0d41277f97b0cd40ececa39d78ac
-z
-Japp/src/main/java/com/example/myproject/ui/view/loginScreen/LoginScreen.kt,2\0\20021daf64e7494f0a7a62a21f5bf338f10f6a5d
-i
-9app/src/main/java/com/example/myproject/ui/theme/Color.kt,c\5\c54cb5c5ff15fb095074223dc97c8acad51d1a45
