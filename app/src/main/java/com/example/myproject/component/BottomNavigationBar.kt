@@ -1,12 +1,14 @@
 package com.example.myproject.component
 
 import android.content.res.Configuration
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -22,15 +24,21 @@ fun BottomNavigationBar() {
         BottomNavItem.Favorites,
         BottomNavItem.Settings,
     )
+    val padding=WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding()
     BottomNavigation(
         backgroundColor = MaterialTheme.colorScheme.background,
         elevation = 5.dp,
-        contentColor = Color.Blue
+        contentColor = Color.Blue,
+        modifier = Modifier
+            .heightIn(padding+56.dp)
+
     ) {
 
 
         items.forEach { item ->
             BottomNavigationItem(
+                modifier = Modifier
+                    .navigationBarsPadding(),
                 icon = {
                     Icon(
                         painterResource(id = item.icon),
