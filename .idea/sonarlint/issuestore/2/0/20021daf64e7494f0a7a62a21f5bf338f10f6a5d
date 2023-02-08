@@ -1,0 +1,12 @@
+
+Dkotlin:S1481M",Remove this unused "maxChar" local variable.(ìÚ‡ä
+Ikotlin:S1481H",Remove this unused "context" local variable.(˜®¾‚øÿÿÿÿ
+Dkotlin:S1481F",Remove this unused "loading" local variable.(ù¦™å
+Jkotlin:S14817"-Remove this unused "launcher" local variable.(ûÛàşÿÿÿÿ
+Hkotlin:S1481="+Remove this unused "result" local variable.(éÅşºúÿÿÿÿ
+2kotlin:S1128"Remove this unused import.(´Ùí
+2kotlin:S1128"Remove this unused import.(šû—
+2kotlin:S1128#"Remove this unused import.(Á‘ğı
+7kotlin:S1128$"Remove this unused import.(ÙÃä¡şÿÿÿÿ
+2kotlin:S1128%"Remove this unused import.(èŒ
+jkotlin:S37760"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(ª·£

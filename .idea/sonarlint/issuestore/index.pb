@@ -1,8 +1,6 @@
 
 h
 8app/src/main/java/com/example/myproject/ui/theme/Type.kt,7\a\7a67d6e4aac6ab6e365cc6e4d3f2723021475c48
-i
-9app/src/main/java/com/example/myproject/ui/theme/Theme.kt,0\b\0b08b82c61e0a7a80e729d4d4e4d9abf9cb76b56
 z
 Japp/src/main/java/com/example/myproject/component/StandardBottomNavItem.kt,1\f\1f81fa06098e8ec62c80f9567d2634bb974f2be5
 <
@@ -27,3 +25,23 @@ n
 >app/src/main/java/com/example/myproject/data/AuthRepository.kt,6\1\6104e73bd711a7ddb534d6beaadf1df41dd1bc57
 n
 >app/src/main/java/com/example/myproject/model/BottomNavItem.kt,9\7\97e4f79902894e52de8b47f633af54d9cdb6fc66
+y
+Iapp/src/main/java/com/example/myproject/ui/view/loginScreen/LoginState.kt,1\e\1e360694ced668190404a43edaac7bef50b290ac
+p
+@app/src/main/java/com/example/myproject/navigation/Navigation.kt,c\6\c6459a09bccf78b1510439ae0a5c946e6a967d47
+}
+Mapp/src/main/java/com/example/myproject/ui/view/loginScreen/LoginViewModel.kt,9\3\93cf02cc506f0d41277f97b0cd40ececa39d78ac
+
+Oapp/src/main/java/com/example/myproject/ui/view/welcome_screen/WelcomeScreen.kt,f\3\f365acade897a91ff1abd5c58febcf8c1a230ff1
+Å
+Qapp/src/main/java/com/example/myproject/ui/view/search_screen/SearchScreenTest.kt,4\c\4c8f1826f3ea2adb986970029c4ba09baee8edf4
+l
+<app/src/main/java/com/example/myproject/navigation/Screen.kt,6\c\6c252c6f5e45fc3df0d20d32214a70959ccfbeba
+i
+9app/src/main/java/com/example/myproject/ui/theme/Shape.kt,9\a\9a3839420aa77ddecf43322d08afe0444458e5f0
+z
+Japp/src/main/java/com/example/myproject/ui/view/loginScreen/LoginScreen.kt,2\0\20021daf64e7494f0a7a62a21f5bf338f10f6a5d
+t
+Dapp/src/main/java/com/example/myproject/component/StandardScafold.kt,6\3\63461c471b50c71c34e1c994a18df6d0d2a344df
+s
+Capp/src/main/java/com/example/myproject/navigation/BottomNavItem.kt,7\f\7fd05b5c084f7f8028671125d016c5034599ff8d
