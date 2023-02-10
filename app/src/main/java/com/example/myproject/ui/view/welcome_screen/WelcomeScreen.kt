@@ -88,7 +88,7 @@ fun WelcomeScreen(navController: NavController) {
                     Button(
                         onClick = {
                             navController.popBackStack()
-                            navController.navigate(Screen.LoginScreen.route)
+                            navController.navigate(Screen.HomeScreen.route)
                         },
                         colors = ButtonDefaults.buttonColors(backgroundColor = colorGreen),
                         modifier = Modifier

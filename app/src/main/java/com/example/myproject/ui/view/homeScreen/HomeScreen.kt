@@ -2,9 +2,7 @@ package com.example.myproject.ui.view.homeScreen
 
 
 import android.content.res.Configuration
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
@@ -50,8 +48,10 @@ fun Home(navController: NavController) {
         content = { padding -> // We have to pass the scaffold inner padding to our content. That's why we use Box.
             Box(modifier = Modifier.padding(padding)) {
                 Column(
-                    modifier = Modifier.fillMaxSize()
+                    modifier = Modifier
+                        .fillMaxSize()
                         .statusBarsPadding()
+                        .verticalScroll(rememberScrollState())
 
                 ) {
                     Row(
@@ -98,7 +98,7 @@ fun Home(navController: NavController) {
                     TopPlayers()
                     Spacer(modifier = Modifier.height(20.dp))
 
-                    Section("Popular shoes") {
+                    Section("Popular Players") {
                         LazyRow(
                             modifier = Modifier
                                 .padding(start = 5.dp)
@@ -119,6 +119,8 @@ fun Home(navController: NavController) {
                         }
                     }
 
+                    Spacer(modifier = Modifier.height(20.dp))
+                    test()
 
                 }
             }
