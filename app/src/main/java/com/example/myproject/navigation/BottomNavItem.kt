@@ -20,12 +20,12 @@ sealed class BottomNavItem(var title: String, var icon: Int) {
     )
 
     object Favorites : BottomNavItem(
-        title = "Favorites",
+        title = "Message",
         icon = R.drawable.ic_fav
     )
 
     object Settings : BottomNavItem(
-        title = "Settings",
+        title = "Profile",
         icon = R.drawable.ic_profile
     )
 }

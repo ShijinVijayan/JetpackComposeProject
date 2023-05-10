@@ -2,14 +2,11 @@ package com.example.myproject.ui.view.homeScreen
 
 
 import android.content.res.Configuration
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material.Scaffold
 import androidx.compose.material.Surface
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
@@ -21,6 +18,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -42,100 +40,124 @@ import com.example.myproject.util.CATEGORY
 import java.util.*
 
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Home(navController: NavController) {
     val shoeList = ShoeDataSource().getShoeList()
+    val item = listOf("Banner", "players", "product", "Banner")
     Scaffold(
         bottomBar = { BottomNavigationBar() },
         content = { padding -> // We have to pass the scaffold inner padding to our content. That's why we use Box.
-            Box(modifier = Modifier.padding(padding)) {
-                Column(
-                    modifier = Modifier.fillMaxSize()
-                        .statusBarsPadding()
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .verticalScroll(rememberScrollState())
+                    .padding(paddingValues = padding)
 
-                ) {
-                    Row(
-                        modifier = Modifier
-                            .padding(top = 16.dp)
-                            .fillMaxWidth(),
-                        verticalAlignment = Alignment.CenterVertically
-                    ) {
-                        Text(
-                            text = "Hey", fontWeight = FontWeight.Bold,
-                            color = colorBlue,
-                            textAlign = TextAlign.Start,
-                            modifier = Modifier
-                                .weight(1f)
-                                .padding(start = 20.dp),
-                            fontSize = 25.sp
-                        )
-                        Image(
-                            painter = painterResource(R.drawable.user),
-                            contentDescription = "profile_picture",
-                            modifier = Modifier
-                                .padding(end = 20.dp)
-                                .size(48.dp)
-                                .clip(CircleShape)
-                                .border(1.5.dp, color = darkBlue, CircleShape),
-                        )
-                    }
-                    Spacer(modifier = Modifier.height(1.dp))
-                    Text(
-                        text = "Adopt a new friend!",
-                        modifier = Modifier.padding(start = 20.dp),
-                        color = darkBlue,
-                        fontSize = 20.sp
-                    )
-                    Spacer(modifier = Modifier.height(20.dp))
+            ) {
+                HeaderProfile()
+                CategoryBar(CATEGORY) {
+                    navController.navigate(Screen.LocationMatches.route)
+                }
+                item.forEach {
+                    when (it) {
+                        "players" -> {
+                            Spacer(modifier = Modifier.height(20.dp))
+                            TopPlayers()
+                        }
+                        "product" -> {
+                            Spacer(modifier = Modifier.height(20.dp))
 
-                    CategoryBar(CATEGORY) {
-                        navController.navigate(Screen.LoginScreen.route)
-                    }
-
-                    Spacer(modifier = Modifier.height(20.dp))
-                    test()
-                    Spacer(modifier = Modifier.height(20.dp))
-                    TopPlayers()
-                    Spacer(modifier = Modifier.height(20.dp))
-
-                    Section("Popular shoes") {
-                        LazyRow(
-                            modifier = Modifier
-                                .padding(start = 5.dp)
-                                .fillMaxWidth()
-                        ) {
-                            items(shoeList) { shoe ->
-                                Spacer(modifier = Modifier.width(5.dp))
-                                DefaultThumbnail(shoe, shoe.shoeTypes[0]) { selectedShoe ->
-                                    println(selectedShoe.id.toString())
+                            Section("Popular shoes") {
+                                LazyRow(
+                                    modifier = Modifier
+                                        .padding(start = 5.dp)
+                                        .fillMaxWidth()
+                                ) {
+                                    items(shoeList) { shoe ->
+                                        Spacer(modifier = Modifier.width(5.dp))
+                                        DefaultThumbnail(shoe, shoe.shoeTypes[0]) { selectedShoe ->
+                                            println(selectedShoe.id.toString())
 //
-                                    /*     navController.navigate(
-                                            *//* Screen.DetailsScreen.withArgs(selectedShoe.id.toString())
+                                            /*     navController.navigate(
+                                                    *//* Screen.DetailsScreen.withArgs(selectedShoe.id.toString())
 //                                          Screen.DetailsScreen.withArgs("selectedShoe.id.toString()")*//*
                                     )*/
+                                        }
+                                        Spacer(modifier = Modifier.width(10.dp))
+                                    }
                                 }
-                                Spacer(modifier = Modifier.width(10.dp))
                             }
+                        }
+                        "Banner" -> {
+                            Spacer(modifier = Modifier.height(20.dp))
+                            SingleBannerImage()
                         }
                     }
 
-
                 }
+                Spacer(modifier = Modifier.height(20.dp))
+
             }
+
         },
     )
 
 
 }
+@Composable
+fun HeaderProfile() {
+
+    Row(
+        modifier = Modifier
+            .padding(top = 16.dp)
+            .fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Text(
+            text = "Hey", fontWeight = FontWeight.Bold,
+            color = colorBlue,
+            textAlign = TextAlign.Start,
+            modifier = Modifier
+                .weight(1f)
+                .padding(start = 20.dp),
+            fontSize = 25.sp
+        )
+        Image(
+            painter = painterResource(R.drawable.user),
+            contentDescription = "profile_picture",
+            modifier = Modifier
+                .padding(end = 20.dp)
+                .size(48.dp)
+                .clip(CircleShape)
+                .border(1.5.dp, color = darkBlue, CircleShape),
+        )
+    }
+    Spacer(modifier = Modifier.height(1.dp))
+    Text(
+        text = "Adopt a new friend!",
+        modifier = Modifier.padding(start = 20.dp),
+        color = darkBlue,
+        fontSize = 20.sp
+    )
+    Spacer(modifier = Modifier.height(20.dp))
+}
 
 
 @Composable
 fun CategoryBar(categoryList: List<Pair<String, Int>>, onCategoryClicked: (String) -> Unit) {
+
     LazyRow(
-        modifier = Modifier.padding(top = 16.dp),
-        contentPadding = PaddingValues(end = 16.dp)
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(top = 16.dp),
+        contentPadding = PaddingValues(end = 16.dp),
+        horizontalArrangement = Arrangement.SpaceEvenly
     ) {
-        items(categoryList.size) { CategoryItem(categoryList[it], onCategoryClicked) }
+
+        items(categoryList.size) {
+            CategoryItem(categoryList[it], onCategoryClicked)
+        }
     }
 
 }
@@ -150,13 +172,19 @@ fun CategoryItem(subject: Pair<String, Int>, onCategoryClicked: (String) -> Unit
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Surface(
+            modifier = Modifier.width(80.dp),
             shape = Shapes.medium,
             color = CardViewBackground
         ) {
-            Image(
-                modifier = Modifier.padding(16.dp),
-                painter = painterResource(id = subject.second),
-                contentDescription = null
+            Text(
+                modifier = Modifier
+                    .padding(all = 16.dp),
+                textAlign = TextAlign.Center,
+                text = subject.first.take(1),
+                fontSize = 32.sp,
+                fontFamily = FontFamily.Monospace,
+                fontWeight = FontWeight.Bold
+
             )
         }
         androidx.compose.material.Text(
@@ -169,7 +197,7 @@ fun CategoryItem(subject: Pair<String, Int>, onCategoryClicked: (String) -> Unit
 
 
 @Composable
-fun test() {
+fun SingleBannerImage() {
     Card(
         modifier = Modifier
             .fillMaxWidth()

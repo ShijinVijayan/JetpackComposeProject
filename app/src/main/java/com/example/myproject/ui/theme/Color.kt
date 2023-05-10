@@ -13,6 +13,7 @@ val colorWhite = Color(0xFFFFFFFF)
 val colorPrimary = Color(0xFFFF7B7B)
 
 val colorGreen = Color(0xFFA0A0A0)
+val colorGray = Color(0xFFEEEEEE)
 val colorRedDark = Color(0xFFFF7B7B)
 val colorBlack = Color(0xFF000000)
 

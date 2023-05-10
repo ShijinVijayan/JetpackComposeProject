@@ -42,22 +42,6 @@ fun DefaultThumbnail(
         Column(modifier = Modifier.padding(10.dp),horizontalAlignment = Alignment.CenterHorizontally)
         {
             /*Header*/
-            Row {
-                Icon(imageVector = Icons.Default.Add, contentDescription = "Add icon")
-                Spacer(modifier = Modifier.weight(1f))
-                if(isLiked) {
-                    Icon(
-                        imageVector = Icons.Outlined.Favorite,
-                        contentDescription = "Favorite icon",
-                        tint = Color.Red)
-                } else {
-                    Icon(
-                        imageVector = Icons.Outlined.FavoriteBorder,
-                        contentDescription = "Favorite icon")
-                }
-            }
-
-            Spacer(modifier = Modifier.height(10.dp))
 
             /*Image of show */
 
@@ -124,7 +108,7 @@ fun DefaultThumbnail(
                 ),
                 onClick = { onButtonClick(shoe) }
             ) {
-                Text(text = "Buy Now")
+                Text(text = "Add Now")
             }
         }
     }

@@ -57,7 +57,7 @@ fun MyProjectTheme(
         SideEffect {
             (view.context as Activity).window.statusBarColor = transparent.toArgb()
             (view.context as Activity).window.navigationBarColor = transparent.toArgb()
-            ViewCompat.getWindowInsetsController(view)?.isAppearanceLightStatusBars = darkTheme
+            ViewCompat.getWindowInsetsController(view)?.isAppearanceLightStatusBars = !darkTheme
         }
     }
 

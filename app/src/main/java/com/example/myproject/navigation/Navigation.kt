@@ -7,6 +7,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.example.myproject.ui.view.homeScreen.Home
+import com.example.myproject.ui.view.location_match_home.LocationMatchesHomeScreen
 import com.example.myproject.ui.view.loginScreen.Login
 import com.example.myproject.ui.view.search_screen.SearchScreenTest
 import com.example.myproject.ui.view.welcome_screen.WelcomeScreen
@@ -41,6 +42,12 @@ fun Navigation(navController: NavHostController) {
             route = Screen.Home.route
         ) {
             Home(navController)
+        }
+
+        composable(
+            route = Screen.LocationMatches.route
+        ){
+            LocationMatchesHomeScreen()
         }
 
     }
