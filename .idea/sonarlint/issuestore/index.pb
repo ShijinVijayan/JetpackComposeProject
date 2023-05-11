@@ -9,8 +9,6 @@ h
 8app/src/main/java/com/example/myproject/util/Resource.kt,2\d\2deff4b2317bdb5678fa6c6f3963cb6ec50175c4
 h
 8app/src/main/java/com/example/myproject/MyApplication.kt,b\d\bd2aa6f477b999d8152c29b1603ec3c624c27cc8
-@
-app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
 g
 7app/src/main/java/com/example/myproject/di/AppModule.kt,3\a\3a514d012cb1760297bca22e69ff597d40159f38
 H
@@ -35,8 +33,6 @@ Mapp/src/main/java/com/example/myproject/ui/view/loginScreen/LoginViewModel.kt,
 Oapp/src/main/java/com/example/myproject/ui/view/welcome_screen/WelcomeScreen.kt,f\3\f365acade897a91ff1abd5c58febcf8c1a230ff1
 Å
 Qapp/src/main/java/com/example/myproject/ui/view/search_screen/SearchScreenTest.kt,4\c\4c8f1826f3ea2adb986970029c4ba09baee8edf4
-l
-<app/src/main/java/com/example/myproject/navigation/Screen.kt,6\c\6c252c6f5e45fc3df0d20d32214a70959ccfbeba
 i
 9app/src/main/java/com/example/myproject/ui/theme/Shape.kt,9\a\9a3839420aa77ddecf43322d08afe0444458e5f0
 z

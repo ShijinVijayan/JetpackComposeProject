@@ -45,9 +45,20 @@ import java.util.*
 fun Home(navController: NavController) {
     val shoeList = ShoeDataSource().getShoeList()
     val item = listOf("Banner", "players", "product", "Banner")
+
     Scaffold(
         bottomBar = { BottomNavigationBar() },
+        topBar = {
+            CategoryBar(CATEGORY) {
+                navController.navigate(Screen.LocationMatches.route)
+            }
+        },
+
         content = { padding -> // We have to pass the scaffold inner padding to our content. That's why we use Box.
+
+//                HeaderProfile()
+
+
             Column(
                 modifier = Modifier
                     .fillMaxSize()
@@ -55,16 +66,14 @@ fun Home(navController: NavController) {
                     .padding(paddingValues = padding)
 
             ) {
-                HeaderProfile()
-                CategoryBar(CATEGORY) {
-                    navController.navigate(Screen.LocationMatches.route)
-                }
+
                 item.forEach {
                     when (it) {
                         "players" -> {
                             Spacer(modifier = Modifier.height(20.dp))
                             TopPlayers()
                         }
+
                         "product" -> {
                             Spacer(modifier = Modifier.height(20.dp))
 
@@ -76,7 +85,10 @@ fun Home(navController: NavController) {
                                 ) {
                                     items(shoeList) { shoe ->
                                         Spacer(modifier = Modifier.width(5.dp))
-                                        DefaultThumbnail(shoe, shoe.shoeTypes[0]) { selectedShoe ->
+                                        DefaultThumbnail(
+                                            shoe,
+                                            shoe.shoeTypes[0]
+                                        ) { selectedShoe ->
                                             println(selectedShoe.id.toString())
 //
                                             /*     navController.navigate(
@@ -89,6 +101,7 @@ fun Home(navController: NavController) {
                                 }
                             }
                         }
+
                         "Banner" -> {
                             Spacer(modifier = Modifier.height(20.dp))
                             SingleBannerImage()
@@ -99,12 +112,12 @@ fun Home(navController: NavController) {
                 Spacer(modifier = Modifier.height(20.dp))
 
             }
-
         },
     )
 
 
 }
+
 @Composable
 fun HeaderProfile() {
 
@@ -150,7 +163,8 @@ fun CategoryBar(categoryList: List<Pair<String, Int>>, onCategoryClicked: (Strin
     LazyRow(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(top = 16.dp),
+            .statusBarsPadding()
+            .padding(bottom = 16.dp),
         contentPadding = PaddingValues(end = 16.dp),
         horizontalArrangement = Arrangement.SpaceEvenly
     ) {
@@ -249,12 +263,15 @@ fun showDayCookMessage(): String {
         in 12..16 -> {
             "What to cook for lunch?"
         }
+
         in 17..20 -> {
             "What to cook for dinner?"
         }
+
         in 21..23 -> {
             "What to cook tonight?"
         }
+
         else -> {
             "What to cook for breakfast?"
         }
