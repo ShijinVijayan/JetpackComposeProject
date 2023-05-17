@@ -3,8 +3,6 @@ h
 8app/src/main/java/com/example/myproject/ui/theme/Type.kt,7\a\7a67d6e4aac6ab6e365cc6e4d3f2723021475c48
 z
 Japp/src/main/java/com/example/myproject/component/StandardBottomNavItem.kt,1\f\1f81fa06098e8ec62c80f9567d2634bb974f2be5
-<
-build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
 h
 8app/src/main/java/com/example/myproject/util/Resource.kt,2\d\2deff4b2317bdb5678fa6c6f3963cb6ec50175c4
 h
@@ -41,3 +39,7 @@ t
 Dapp/src/main/java/com/example/myproject/component/StandardScafold.kt,6\3\63461c471b50c71c34e1c994a18df6d0d2a344df
 s
 Capp/src/main/java/com/example/myproject/navigation/BottomNavItem.kt,7\f\7fd05b5c084f7f8028671125d016c5034599ff8d
+Š
+Zapp/src/main/java/com/example/myproject/ui/view/location_match_home/LocationMatchesHome.kt,e\7\e7d64130339ee8145ae34c77d87f144f91ab06d0
+i
+9app/src/main/java/com/example/myproject/ui/theme/Theme.kt,0\b\0b08b82c61e0a7a80e729d4d4e4d9abf9cb76b56

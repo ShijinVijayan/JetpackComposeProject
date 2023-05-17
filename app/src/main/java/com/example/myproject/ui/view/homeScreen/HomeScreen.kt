@@ -2,18 +2,27 @@ package com.example.myproject.ui.view.homeScreen
 
 
 import android.content.res.Configuration
+import android.view.Menu
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material.MaterialTheme.colors
 import androidx.compose.material.Surface
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ImageSearch
+import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material.icons.filled.Notifications
+import androidx.compose.material.icons.filled.NotificationsNone
+import androidx.compose.material.icons.outlined.Notifications
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -28,13 +37,17 @@ import androidx.navigation.NavController
 import com.example.myproject.R
 import com.example.myproject.component.BottomNavigationBar
 import com.example.myproject.component.DefaultThumbnail
+import com.example.myproject.component.SearchBarCom
 import com.example.myproject.component.Section
 import com.example.myproject.component.TopPlayers
 import com.example.myproject.data.ShoeDataSource
 import com.example.myproject.navigation.Screen
 import com.example.myproject.ui.theme.CardViewBackground
 import com.example.myproject.ui.theme.Shapes
+import com.example.myproject.ui.theme.colorBlack
 import com.example.myproject.ui.theme.colorBlue
+import com.example.myproject.ui.theme.colorDArkGray
+import com.example.myproject.ui.theme.colorWhite
 import com.example.myproject.ui.theme.darkBlue
 import com.example.myproject.util.CATEGORY
 import java.util.*
@@ -44,16 +57,14 @@ import java.util.*
 @Composable
 fun Home(navController: NavController) {
     val shoeList = ShoeDataSource().getShoeList()
-    val item = listOf("Banner", "players", "product", "Banner")
+    val item = listOf("locationMatches", "Banner", "players", "product", "Banner")
 
     Scaffold(
         bottomBar = { BottomNavigationBar() },
         topBar = {
-            CategoryBar(CATEGORY) {
-                navController.navigate(Screen.LocationMatches.route)
-            }
-        },
+            ProfileIconBlock()
 
+        },
         content = { padding -> // We have to pass the scaffold inner padding to our content. That's why we use Box.
 
 //                HeaderProfile()
@@ -69,6 +80,14 @@ fun Home(navController: NavController) {
 
                 item.forEach {
                     when (it) {
+                        "locationMatches" -> {
+                            Spacer(modifier = Modifier.height(10.dp))
+                            LocationTopBar(CATEGORY) {
+                                navController.navigate(Screen.LocationMatches.route)
+                            }
+                        }
+
+
                         "players" -> {
                             Spacer(modifier = Modifier.height(20.dp))
                             TopPlayers()
@@ -76,7 +95,6 @@ fun Home(navController: NavController) {
 
                         "product" -> {
                             Spacer(modifier = Modifier.height(20.dp))
-
                             Section("Popular shoes") {
                                 LazyRow(
                                     modifier = Modifier
@@ -86,8 +104,7 @@ fun Home(navController: NavController) {
                                     items(shoeList) { shoe ->
                                         Spacer(modifier = Modifier.width(5.dp))
                                         DefaultThumbnail(
-                                            shoe,
-                                            shoe.shoeTypes[0]
+                                            shoe, shoe.shoeTypes[0]
                                         ) { selectedShoe ->
                                             println(selectedShoe.id.toString())
 //
@@ -114,7 +131,61 @@ fun Home(navController: NavController) {
             }
         },
     )
+}
 
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun ProfileIconBlock() {
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .wrapContentHeight()
+            .background(Color.White)
+    ) {
+        Row(
+            modifier = Modifier
+                .statusBarsPadding()
+                .padding(vertical = 8.dp)
+                .fillMaxWidth(),
+            horizontalArrangement = Arrangement.Start,
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Image(
+                painterResource(id = R.drawable.foodizone_logo),
+                contentDescription = "Personal Image",
+                contentScale = ContentScale.Crop,
+                modifier = Modifier
+                    .padding(start = 16.dp)
+                    .size(48.dp)
+                    .clip(CircleShape)
+                    .border(2.dp, colorBlue, shape = CircleShape)
+            )
+
+            Text(
+                text = "Hi Shijin,",
+                fontWeight = FontWeight.Bold,
+                color = colorBlue,
+                textAlign = TextAlign.Start,
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(start = 8.dp, end = 8.dp),
+                fontSize = 16.sp
+            )
+
+            Icon(
+                imageVector = Icons.Outlined.Notifications,
+                contentDescription = "profile_picture",
+                modifier = Modifier
+                    .padding(end = 16.dp)
+                    .size(32.dp),
+            )
+
+        }
+
+        SearchBarCom()
+
+    }
 
 }
 
@@ -128,7 +199,8 @@ fun HeaderProfile() {
         verticalAlignment = Alignment.CenterVertically
     ) {
         Text(
-            text = "Hey", fontWeight = FontWeight.Bold,
+            text = "Hey",
+            fontWeight = FontWeight.Bold,
             color = colorBlue,
             textAlign = TextAlign.Start,
             modifier = Modifier
@@ -158,19 +230,18 @@ fun HeaderProfile() {
 
 
 @Composable
-fun CategoryBar(categoryList: List<Pair<String, Int>>, onCategoryClicked: (String) -> Unit) {
+fun LocationTopBar(categoryList: List<Pair<String, Int>>, onCategoryClicked: (String) -> Unit) {
 
     LazyRow(
         modifier = Modifier
             .fillMaxWidth()
-            .statusBarsPadding()
             .padding(bottom = 16.dp),
         contentPadding = PaddingValues(end = 16.dp),
         horizontalArrangement = Arrangement.SpaceEvenly
     ) {
 
         items(categoryList.size) {
-            CategoryItem(categoryList[it], onCategoryClicked)
+            LocationTopBarItem(categoryList[it], onCategoryClicked)
         }
     }
 
@@ -178,7 +249,7 @@ fun CategoryBar(categoryList: List<Pair<String, Int>>, onCategoryClicked: (Strin
 
 
 @Composable
-fun CategoryItem(subject: Pair<String, Int>, onCategoryClicked: (String) -> Unit) {
+fun LocationTopBarItem(subject: Pair<String, Int>, onCategoryClicked: (String) -> Unit) {
     Column(
         modifier = Modifier
             .padding(start = 16.dp)
@@ -186,13 +257,10 @@ fun CategoryItem(subject: Pair<String, Int>, onCategoryClicked: (String) -> Unit
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Surface(
-            modifier = Modifier.width(80.dp),
-            shape = Shapes.medium,
-            color = CardViewBackground
+            modifier = Modifier.width(80.dp), shape = Shapes.medium, color = CardViewBackground
         ) {
             Text(
-                modifier = Modifier
-                    .padding(all = 16.dp),
+                modifier = Modifier.padding(all = 16.dp),
                 textAlign = TextAlign.Center,
                 text = subject.first.take(1),
                 fontSize = 32.sp,
@@ -237,14 +305,11 @@ fun SingleBannerImage() {
                     style = MaterialTheme.typography.titleSmall,
                     color = Color.White
                 )
-                Button(
-                    onClick = {
+                Button(onClick = {
 
-                    }
-                ) {
+                }) {
                     Text(
-                        text = "Get a Random Meal",
-                        style = MaterialTheme.typography.labelMedium
+                        text = "Get a Random Meal", style = MaterialTheme.typography.labelMedium
                     )
                 }
             }

@@ -14,11 +14,14 @@ val colorPrimary = Color(0xFFFF7B7B)
 
 val colorGreen = Color(0xFFA0A0A0)
 val colorGray = Color(0xFFEEEEEE)
+val colorLightGray = Color(0xFFF9FDFD)
+val colorDArkGray = Color(0xFF868686)
 val colorRedDark = Color(0xFFFF7B7B)
 val colorBlack = Color(0xFF000000)
 
 //Blue
 val colorBlue = Color(0xFF004A8A)
+val colorLightBlue = Color(0xB4E6E7E7)
 val darkBlue = Color(0xFF03325A)
 val transparent = Color(0x3325A)
 
