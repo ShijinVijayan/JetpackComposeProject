@@ -48,7 +48,7 @@ import java.util.*
 @Composable
 fun Home(navController: NavController) {
     val shoeList = ShoeDataSource().getShoeList()
-    val item = listOf("Banner","locationMatches", "players", "product", "Banner")
+    val item = listOf("PlayerCard","locationMatches", "Banner","players", "product", )
 
     Scaffold(
         bottomBar = { BottomNavigationBar() },
@@ -111,6 +111,11 @@ fun Home(navController: NavController) {
                         "Banner" -> {
                             Spacer(modifier = Modifier.height(20.dp))
                             SingleBannerImage()
+                        }
+
+                        "PlayerCard"->{
+                            Spacer(modifier = Modifier.width(20.dp))
+                            MainTwoBlock()
                         }
                     }
 

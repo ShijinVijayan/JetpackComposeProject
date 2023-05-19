@@ -21,8 +21,13 @@ val colorBlack = Color(0xFF000000)
 
 //Blue
 val colorBlue = Color(0xFF004A8A)
-val colorLightBlue = Color(0xB4E6E7E7)
+val colorLightBlue = Color(0xFF03A9F4)
 val darkBlue = Color(0xFF03325A)
 val transparent = Color(0x3325A)
+
+
+val transparents = Color(0xFFFEF8EC)
+
+
 
 val CardViewBackground = Color(9, 121, 223, 8)
